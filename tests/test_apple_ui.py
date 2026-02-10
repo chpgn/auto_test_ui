@@ -1,6 +1,16 @@
 from pages.homepage import HomePage
 from pages.product import ProductPage
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
+
+def test_navigation_menu(driver):
+    homepage = HomePage(driver)
+    homepage.open()
+    nav = driver.find_element(By.ID, 'globalnav')
+    assert nav.is_displayed()
+    print('navigation menu opened')
 
 def test_open_iphone(driver):
     homepage = HomePage(driver)
